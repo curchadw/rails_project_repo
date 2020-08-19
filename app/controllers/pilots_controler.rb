@@ -1,0 +1,5 @@
+class PilotsController < ApplicationController
+    
+    
+    
+end

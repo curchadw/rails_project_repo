@@ -10,11 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 4) do
+ActiveRecord::Schema.define(version: 5) do
+
+  create_table "destinations", force: :cascade do |t|
+    t.string "name"
+  end
 
   create_table "flights", force: :cascade do |t|
     t.integer "pilot_id"
-    t.integer "passenger_id"
+    t.integer "destination_id"
     t.string "flight_number"
   end
 
@@ -28,7 +32,7 @@ ActiveRecord::Schema.define(version: 4) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
+    t.string "username"
     t.string "password_digest"
     t.boolean "admin", default: false
   end
