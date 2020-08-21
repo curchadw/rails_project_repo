@@ -1,5 +1,6 @@
 class FlightsController < ApplicationController
-    
+    before_action :verified_user, only: [:new]
+
     def index
         @flights = Flight.all
     end

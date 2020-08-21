@@ -1,11 +1,21 @@
 <%= form_with model: @flight do |f| %>
+<div>
 Create a Flight:
 <%= f.label :flight_number %>
 <%= f.text_field :flight_number %>
+</div><br>
+<div>
+Assign Pilot:
+<%= f.collection_select(:pilot_id, Pilot.all, :id, :name) %>
+</div><br>
+
+
+<div>
 Choose a destination:
 <%= f.collection_select(:destination_id, Destination.all, :id, :name) %>
+</div><br>
 
-
+<div>
 Add Passengers:
 <ol>
 <%= f.fields_for :passengers do |passenger|%>
@@ -13,8 +23,10 @@ Add Passengers:
         <%= passenger.label :name%>
         <%= passenger.text_field :name%>
     </li>
+    <%= f.submit "Add to flight"%>
 <% end %>
 </ol>
+</div>
 <%= f.submit 'Create Flight' %>
 
 <% end %>

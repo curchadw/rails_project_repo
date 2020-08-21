@@ -1,4 +1,5 @@
 <h1>Welcome to Flight Scheduler</h1>
+
 <% if logged_in %>
     <h2>You are Logged In, <%= current_user.username %></h2>
 <%end%>
@@ -7,3 +8,4 @@
 <h3><%= link_to "Meet your pilots", pilots_path %></h3>
 <h3><%= link_to "See what cities we are currently servicing", destinations_path %></h3>
 
+<%= link_to "Log Out", "/session", method: :delete %>
