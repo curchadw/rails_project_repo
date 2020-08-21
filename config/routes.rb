@@ -1,13 +1,19 @@
 Rails.application.routes.draw do
-  resources :users do
+  resources :users, except:[:new] do
       resources :flights, only: [:update, :destroy, :create]
       resources :pilots,  only: [:update, :destroy, :create]
       resources :passengers, only: [:update, :destroy, :create]
+      resources :destinations, except:[:index]
   end
 
   root 'static#home'
 
+  #destinations
+  get '/users/:id/destinations', to: 'destinations#index', as: 'destinations'
+
   #users
+  get '/users/new', to: 'users#new', as: 'new_user'
+  
   
 
   #flights
