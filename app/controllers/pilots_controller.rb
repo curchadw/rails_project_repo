@@ -5,22 +5,22 @@ class PilotsController < ApplicationController
     end
 
     def show
-        @pilot = pilot.find_by(id: params[:id])
+        @pilot = Pilot.find_by(id: params[:id])
     end
 
     def new
-        @pilot = pilot.new
+        @pilot = Pilot.new
     end
 
     def create
-        pilot = pilot.create(pilot_params)
+        pilot = Pilot.create(pilot_params)
         redirect_to pilot
     end
 
     
 
     def edit
-        @pilot = pilot.find_by(id: params[:id])
+        @pilot =Pilot.find_by(id: params[:id])
     end
 
     def update

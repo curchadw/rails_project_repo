@@ -3,7 +3,7 @@ class FlightsController < ApplicationController
 
     def index
         if params[:flight_number]
-            @flight =FLight.where('flight_number LIKE?', "%#{params[:flight_number]}")
+            @flight =Flight.where('flight_number LIKE?', "%#{params[:flight_number]}")
         else
             @flights = Flight.all
         end
