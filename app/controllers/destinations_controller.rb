@@ -4,7 +4,7 @@ class DestinationsController < ApplicationController
     end
 
     def show
-        @destination = Destination.find_by(id: params[:id])
+        @destination = Destination.find(params[:id])
     end
 
     def new
@@ -12,8 +12,17 @@ class DestinationsController < ApplicationController
     end
 
     def create
-        destination = Destiatnion.create(dest_params)
-        redirect_to destination
+        @destination = Destination.new(dest_params)
+        
+            if @destination.save!
+      # this route really does not need to be nested.
+      # see https://guides.rubyonrails.org/routing.html#shallow-nesting
+            redirect_to user_destination_path(current_user, @destination)
+        else
+      # re-render the form with errors
+        render :new 
+        end
+        
     end
 
     
@@ -30,7 +39,9 @@ class DestinationsController < ApplicationController
     private
 
     def dest_params
-        params.require(:destination).permit(:id, :name)
+        params.require(:destination).permit(:name,:user_id)
     end
+
+    
         
 end

@@ -1,0 +1,10 @@
+<h1>Authorized Desitinations</h1>
+<p><%= link_to 'Add a destination', new_user_destination_path  %></p>
+
+<div>
+<ul>
+<%= @destinations.each do |destination|%>
+<li><%= link_to "#{destination.name}", user_destination_path %></li>
+<% end %>
+</ul>
+</div>

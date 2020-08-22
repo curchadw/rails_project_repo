@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 5) do
 
   create_table "destinations", force: :cascade do |t|
     t.string "name"
+    t.integer "user_id"
   end
 
   create_table "flights", force: :cascade do |t|

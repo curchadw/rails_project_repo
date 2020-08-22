@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   
   resources :users, except:[:new, :show] do
+      resources :destinations, except:[:index, :show]
       resources :flights, only: [:update, :destroy, :create]
       resources :pilots,  only: [:update, :destroy, :create]
       resources :passengers, only: [:update, :destroy, :create]
-      resources :destinations, except:[:index]
+      
   
 
   end
@@ -17,7 +18,8 @@ Rails.application.routes.draw do
   
       delete 'session', to: 'sessions#destroy', as: 'logout'
 
-  
+      get '/users/:user_id/destinations', to: "destinations#index", as: 'destinations'
+      get '/users/:user_id/destinations/:id', to: "destinations#show", as: 'destination'
   
  
       
@@ -32,8 +34,7 @@ Rails.application.routes.draw do
   root 'static#home'
  
   #destinations
-  get '/users/:id/destinations', to: 'destinations#index', as: 'destinations'
-
+  
   #users
   
   
