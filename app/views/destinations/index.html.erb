@@ -2,9 +2,9 @@
 <p><%= link_to 'Add a destination', new_user_destination_path  %></p>
 
 <div>
-<ul>
+<ol>
 <%= @destinations.each do |destination|%>
-<li><%= link_to "#{destination.name}", user_destination_path %></li>
+<li><%= link_to destination.name %></li>
 <% end %>
-</ul>
+</ol>
 </div>
