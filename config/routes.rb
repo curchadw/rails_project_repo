@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   resources :users, except:[:new, :show] do
       resources :flights, only: [:update, :destroy, :create]
       resources :pilots,  only: [:update, :destroy, :create]
@@ -26,7 +27,7 @@ Rails.application.routes.draw do
   # post '/login'   to: 'sessions#create'
   # post '/signin', to: 'sessions#create'
   
-  get '/welcome', to: 'sessions#welcome'
+ 
   
   root 'static#home'
  

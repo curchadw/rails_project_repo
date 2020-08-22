@@ -2,8 +2,14 @@ class FlightsController < ApplicationController
     before_action :verified_user, only: [:new]
 
     def index
-        @flights = Flight.all
+        if params[:flight_number]
+            @flight =FLight.where('flight_number LIKE?', "%#{params[:flight_number]}")
+        else
+            @flights = Flight.all
+        end
     end
+
+    
     
     def new
         @flight = Flight.new
