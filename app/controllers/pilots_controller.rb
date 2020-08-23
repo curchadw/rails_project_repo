@@ -5,7 +5,7 @@ class PilotsController < ApplicationController
     end
 
     def show
-        @pilot = Pilot.find_by(id: params[:id])
+        @pilot = Pilot.findy(params[:id])
     end
 
     def new
@@ -20,7 +20,7 @@ class PilotsController < ApplicationController
     
 
     def edit
-        @pilot =Pilot.find_by(id: params[:id])
+        @pilot = Pilot.find(params[:id])
     end
 
     def update

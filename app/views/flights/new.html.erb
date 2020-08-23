@@ -11,7 +11,12 @@ Assign Pilot:
 
 
 <div>
-Choose a destination:
+Choose Departure:
+<%= f.collection_select(:destination_id, Destination.all, :id, :name) %>
+</div>
+
+<div>
+Choose Destination:
 <%= f.collection_select(:destination_id, Destination.all, :id, :name) %>
 </div><br>
 

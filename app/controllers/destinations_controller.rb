@@ -17,7 +17,7 @@ class DestinationsController < ApplicationController
             if @destination.save!
       # this route really does not need to be nested.
       # see https://guides.rubyonrails.org/routing.html#shallow-nesting
-            redirect_to user_destination_path(current_user, @destination)
+            redirect_to user_destination_path(current_user,@destination.id)
         else
       # re-render the form with errors
         render :new 
@@ -28,18 +28,29 @@ class DestinationsController < ApplicationController
     
 
     def edit
-        @destination = Destination.find_by(id: params[:id])
+        @destination = Destination.find(params[:id])
     end
 
     def update
-        destination = Destination.find_by(id: params[:id])
-        destination.update(dest_params)
+        @destination = Destination.find(params[:id])
+        if @destination.update_attributes(dest_params)
+            flash[:success] = "Destination updated"
+            redirect_to @destination
+        else
+            render 'edit'
+        end   
+    end
+
+    def destroy
+        @destination = Destination.find(params[:id])
+        @destination.destroy
+        redirect_to user_destinations_path
     end
 
     private
 
     def dest_params
-        params.require(:destination).permit(:name,:user_id)
+        params.require(:destination).permit(:name)
     end
 
     
