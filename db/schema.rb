@@ -15,28 +15,41 @@ ActiveRecord::Schema.define(version: 5) do
   create_table "destinations", force: :cascade do |t|
     t.string "name"
     t.integer "user_id"
+    t.integer "flight_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "flights", force: :cascade do |t|
     t.integer "pilot_id"
     t.integer "destination_id"
     t.string "flight_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "passengers", force: :cascade do |t|
     t.string "name"
     t.integer "flight_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "pilots", force: :cascade do |t|
     t.string "name"
     t.string "rank"
+    t.integer "user_id"
+    t.integer "flight_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
     t.boolean "admin", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

@@ -1,0 +1,18 @@
+<h2>Flight Number: <%= @flight.flight_number%></h2>
+<div>
+<p>Departure City:<%= @flight.dest_name %></p>
+<p>Pilot: <%= @flight.pilot_name %></p>
+</div>
+
+
+<div>
+    Passneger Manifest:
+    <ol>
+        
+        <% @flight.passengers.each do |pass|%>
+            <li><%= pass.name %></li>
+        <% end %>
+    </ol>
+</div>
+
+<%= link_to 'Home Screen', user_path(current_user)%>

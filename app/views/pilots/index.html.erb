@@ -1,0 +1,16 @@
+<h1>Current Pilot Roster</h1>
+<h2><%= link_to 'Add a Pilot', new_pilot_path  %></h2>
+
+<div>
+<ol>
+<% @pilots.each do |pilot|%>
+    <% if current_user.admin %>
+        <h3><li><%= pilot.rank %>/<%= pilot.name %> | <%= link_to 'Edit', edit_pilot_path(current_user, pilot) %> |  <%= link_to 'Delete',user_pilot_path(current_user, pilot), method: :delete %></li></h3>
+    <% else %>
+        <h3><li><%= pilot.rank %>/<%= pilot.name %></li></h3>
+    <% end %>
+<% end %>
+</ol>
+</div>
+
+<%= link_to 'Back', user_path(current_user) %>

@@ -2,27 +2,32 @@ class FlightsController < ApplicationController
     before_action :verified_user, only: [:new]
 
     def index
-        if params[:flight_number]
-            @flight =Flight.where('flight_number LIKE?', "%#{params[:flight_number]}")
-        else
-            @flights = Flight.all
-        end
+        @flights = Flight.search(params[:search])
     end
 
     
     
     def new
         @flight = Flight.new
-        @flight.passengers.build
+        20.times {@flight.passengers.build}
+        # @flight.destinations.build
+        # @flight.pilots.build
     end
 
     def create
-        flight = Flight.create(flight_params)
-        redirect_to flight_path(flight)
+        @flight = Flight.new(flight_params)
+        
+        if @flight.save!
+  
+            redirect_to flight_path(@flight)
+        else
+  
+            render :new 
+        end
     end
 
     def show
-        @flight = find_by(params[:id])
+        @flight = Flight.find(params[:id])
     end
 
 
@@ -30,7 +35,7 @@ class FlightsController < ApplicationController
     private
 
     def flight_params
-        params.require(:flight).permit(:flight_number, :pilot_id, :destination_id, passengers_attributes:[:id, :name])
+        params.require(:flight).permit(:flight_number, :flight_id, :search, passengers_attributes:[:id, :name],pilot_id:[], destination_id:[])
     end
     
     

@@ -6,18 +6,15 @@ Create a Flight:
 </div><br>
 <div>
 Assign Pilot:
-<%= f.collection_select(:pilot_id, Pilot.all, :id, :name) %>
+<%= f.collection_select(:pilot_id, Pilot.all, :id, :name, :prompt => "Please Select a Pilot") %>
 </div><br>
 
 
-<div>
-Choose Departure:
-<%= f.collection_select(:destination_id, Destination.all, :id, :name) %>
-</div>
+
 
 <div>
 Choose Destination:
-<%= f.collection_select(:destination_id, Destination.all, :id, :name) %>
+<%= f.collection_select(:destination_id, Destination.all, :id, :name, :prompt => "Please Select a Destination City") %>
 </div><br>
 
 <div>
@@ -28,7 +25,8 @@ Add Passengers:
         <%= passenger.label :name%>
         <%= passenger.text_field :name%>
     </li>
-    <%= f.submit "Add to flight"%>
+    
+
 <% end %>
 </ol>
 </div>

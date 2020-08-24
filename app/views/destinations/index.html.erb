@@ -3,7 +3,7 @@
 
 <div>
 <ol>
-<%= @destinations.each do |destination|%>
+<% @destinations.each do |destination|%>
     <% if current_user.admin %>
         <h3><li><%= destination.name %> | <%= link_to 'Edit', edit_user_destination_path(current_user, destination) %> |  <%= link_to 'Delete',user_destination_path(current_user, destination), method: :delete %></li></h3>
     <% else %>

@@ -47,10 +47,10 @@ Rails.application.routes.draw do
   get '/users/:id/flights/:id/edit', to: 'flights#edit', as: 'edit_flight'
 
   #pilot
-  get '/users/:id/pilots', to: 'pilots#index', as: 'pilots'
-  get '/users/:id/pilots/new', to: 'pilots#new', as: 'new_pilot'
-  get '/users/:id/pilots/:id', to: 'pilots#show', as: 'pilot'
-  get '/users/:id/pilotss/:id/edit', to: 'pilots#edit', as: 'edit_pilot'
+  get '/users/:user_id/pilots', to: 'pilots#index', as: 'pilots'
+  get '/users/:user_id/pilots/new', to: 'pilots#new', as: 'new_pilot'
+  get '/users/:user_id/pilots/:id', to: 'pilots#show', as: 'pilot'
+  get '/users/:user_id/pilotss/:id/edit', to: 'pilots#edit', as: 'edit_pilot'
   
   #passenger
   get '/users/:id/pasengers', to: 'passengers#index', as: 'passengers'

@@ -1,0 +1,16 @@
+<div>
+<%= form_tag flights_path :method => "get" do %>
+    <%= label_tag(:search, "Which flight are you looking for?") %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag 'Search', name: nil %>
+<% end %>
+</div>
+
+<h3>Current Flights:</h3>
+<div>
+<ol>
+<% @flights.each do |flight| %>
+  <li><%= link_to flight.flight_number, flight_path(flight) %></li>
+<% end %>
+</ol>
+</div>

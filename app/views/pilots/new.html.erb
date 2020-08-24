@@ -1,0 +1,11 @@
+<h2>Add a Pilot</h2>
+
+<div>
+<%= form_for @pilot do |f|%>
+  <%= f.label :rank %>
+  <%= f.text_field :rank %><br>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+  <%= f.submit %>
+<% end %>
+</div>

@@ -1,8 +1,5 @@
 <div>
-<%= form_tag(flights_path method: :get) do %>
-  Flight Number: <%= text_field_tag :flight_number, params[:flight_number] %>
-  <%= submit_tag 'Search', name: nil %>
-<% end %>
+
 </div>
 
 
@@ -13,10 +10,9 @@
 <%end%>
 
 <h3><%= link_to "Create New Flight", new_flight_path %></h3>
-<h3><%= link_to "Meet your pilots", pilots_path %></h3>
+<h3><%= link_to "Meet your pilots", user_pilots_path(current_user) %></h3>
 <h3><%= link_to "See what cities we are currently servicing", destinations_path(current_user)%></h3>
+<h3><%= link_to "Current Flight", flights_path(current_user)%></h3>
 <div>
-<h3>Current Flights:</h3>
 
-</div>
 <%= link_to "Log Out", "/session", method: :delete %>
