@@ -10,7 +10,7 @@
 <div>
 <ol>
 <% @flights.each do |flight| %>
-  <li><%= link_to flight.flight_number, flight_path(flight) %></li>
+  <li><%= link_to flight.flight_number, flight_path(current_user, flight) %> | <%= link_to 'Edit', edit_flight_path(current_user, flight) %> |  <%= link_to 'Delete',flight_path(current_user, flight), method: :delete %></li>
 <% end %>
 </ol>
 </div>

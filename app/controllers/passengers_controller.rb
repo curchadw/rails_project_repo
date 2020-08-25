@@ -22,6 +22,13 @@ class PassengersController < ApplicationController
         passenger.update(pass_params)
     end
 
+    def delete
+        @passenger = Passenger.find(params[:id])
+        @flight = @passenger.name
+        @passenger.destroy
+        redirect_to flight_path(@flight)
+    end
+
     private
 
     def pass_params

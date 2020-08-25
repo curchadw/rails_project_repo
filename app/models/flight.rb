@@ -7,10 +7,12 @@ class Flight < ActiveRecord::Base
 
 
     def dest_name=(name)
+        
         self.destination = Destination.find_or_create_by(name: name)
     end
 
     def dest_name
+        
         self.destination ? self.destination.name : nil
     end
 
@@ -19,6 +21,7 @@ class Flight < ActiveRecord::Base
     end
 
     def pilot_name
+        
         self.pilot ? self.pilot.name : nil
     end
 

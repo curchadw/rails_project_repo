@@ -41,22 +41,22 @@ Rails.application.routes.draw do
   
 
   #flights
-  get '/users/:id/flights', to: 'flights#index', as: 'flights'
-  get '/users/:id/flights/new', to: 'flights#new', as: 'new_flight'
-  get '/users/:id/flights/:id', to: 'flights#show', as: 'flight'
-  get '/users/:id/flights/:id/edit', to: 'flights#edit', as: 'edit_flight'
+  get '/users/:user_id/flights', to: 'flights#index', as: 'flights'
+  get '/users/:user_id/flights/new', to: 'flights#new', as: 'new_flight'
+  get '/users/:user_id/flights/:id', to: 'flights#show', as: 'flight'
+  get '/users/:user_id/flights/:id/edit', to: 'flights#edit', as: 'edit_flight'
 
   #pilot
   get '/users/:user_id/pilots', to: 'pilots#index', as: 'pilots'
   get '/users/:user_id/pilots/new', to: 'pilots#new', as: 'new_pilot'
   get '/users/:user_id/pilots/:id', to: 'pilots#show', as: 'pilot'
-  get '/users/:user_id/pilotss/:id/edit', to: 'pilots#edit', as: 'edit_pilot'
+  get '/users/:user_id/pilots/:id/edit', to: 'pilots#edit', as: 'edit_pilot'
   
   #passenger
-  get '/users/:id/pasengers', to: 'passengers#index', as: 'passengers'
-  get '/users/:id/passengers/new', to: 'passengers#new', as: 'new_passenger'
-  get '/users/:id/passengers/:id', to: 'passengers#show', as: 'passenger'
-  get '/users/:id/passengers/:id/edit', to: 'passengers#edit', as: 'edit_passenger'
+  get '/users/:user_id/pasengers', to: 'passengers#index', as: 'passengers'
+  get '/users/:user_id/passengers/new', to: 'passengers#new', as: 'new_passenger'
+  get '/users/:user_id/passengers/:id', to: 'passengers#show', as: 'passenger'
+  get '/users/:user_id/passengers/:id/edit', to: 'passengers#edit', as: 'edit_passenger'
 
   
 

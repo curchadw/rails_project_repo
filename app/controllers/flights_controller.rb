@@ -19,7 +19,7 @@ class FlightsController < ApplicationController
         
         if @flight.save!
   
-            redirect_to flight_path(@flight)
+            redirect_to flight_path(current_user,@flight)
         else
   
             render :new 
@@ -31,11 +31,18 @@ class FlightsController < ApplicationController
     end
 
 
+    def destroy
+        @flight = Flight.find(params[:id])
+        @flight.destroy
+        redirect_to flights_path
+    end
+
+
 
     private
 
     def flight_params
-        params.require(:flight).permit(:flight_number, :flight_id, :search, passengers_attributes:[:id, :name],pilot_id:[], destination_id:[])
+        params.require(:flight).permit(:flight_number, :flight_id, :destination_id, :pilot_id, :search, :pilot_id =>[], :destination_id =>[], passengers_attributes:[:id, :name])
     end
     
     
