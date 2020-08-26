@@ -1,0 +1,15 @@
+
+[1mFrom:[0m /home/curchadw/project_3/app/views/pilots/index.html.erb:11 #<Class:0x00007ff7c0e5e268>#_app_views_pilots_index_html_erb___1671518218233090091_70351030480840:
+
+     [1;34m6[0m: <% @pilots.each do |pilot|%>
+     [1;34m7[0m:     <% if current_user.admin %>
+     [1;34m8[0m:         <h3><li><%= pilot.rank %>/<%= pilot.name %> | <%= link_to 'Edit', edit_pilot_path(current_user, pilot) %> |  <%= link_to 'Delete',user_pilot_path(current_user, pilot), method: :delete %></li></h3>
+     [1;34m9[0m:             Where am I going:
+    [1;34m10[0m:                 <ul>
+ => [1;34m11[0m:                     <% binding.pry %>
+    [1;34m12[0m:                     <% pilot.destinations do |destination| %>
+    [1;34m13[0m:                    
+    [1;34m14[0m:                         <li><%= destination.name %></li>
+    [1;34m15[0m:                     <% end %>
+    [1;34m16[0m:                 </ul>
+

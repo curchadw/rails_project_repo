@@ -1,0 +1,10 @@
+<h2>All Users Of The Application</h2>
+<ol>
+<% @users.each do |user| %>
+    <% if user.admin %>
+    <% else%>
+
+    <li><%= user.username %></li>
+    <% end %>
+<% end %>
+</ol>

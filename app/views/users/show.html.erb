@@ -15,4 +15,4 @@
 <h3><%= link_to "Current Flight", flights_path(current_user)%></h3>
 <div>
 
-<%= link_to "Log Out", "/session", method: :delete %>
+<%= link_to "Log Out", "/session", method: :delete %> | <% if current_user.admin%> <%= link_to "Admin Use Only" , users_path %> <% end %>

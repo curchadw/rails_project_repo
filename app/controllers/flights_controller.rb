@@ -31,6 +31,21 @@ class FlightsController < ApplicationController
     end
 
 
+    def edit
+        @flight = Flight.find(params[:id])
+    end
+
+    def update
+        @flight = Flight.find(params[:id])
+        if @flight.update_attributes(flight_params)
+            flash[:success] = "Flight updated"
+            redirect_to @flight
+        else
+            render 'edit'
+        end   
+    end
+
+
     def destroy
         @flight = Flight.find(params[:id])
         @flight.destroy
