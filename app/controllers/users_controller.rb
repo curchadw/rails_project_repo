@@ -1,8 +1,5 @@
 class UsersController < ApplicationController
- validate :username, :password, presence: true
- validate :username, uniqueness: true
- validate :username, length: { in: 6..10 }
- validate :password, length: { in: 6..20 }
+ 
 
     def index
         @users = User.all
