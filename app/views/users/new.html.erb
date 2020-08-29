@@ -1,23 +1,28 @@
 <h1>Sign Up</h1>
 
 <div>
-<% if @user.errors.any? %>
-<div id="error_explanation">
-<h2><%= pluralize(@post.errors.count, "error") %> prohibited this user from being saved:</h2>
+  <% if @user.errors.any? %>
+   <divt class="error_explanation">
+  <h2><%= pluralize(@user.errors.count, "error") %> prevented this record from being saved:</h2>
   <ul>
-    <% @user.errors.full_messages.each do |error_message| %>
-      <li><%= error_message %></li> 
-    <% end %>
+  <% @user.errors.full_messages.each do |msg| %>
+    <li style='color:red;'><%= msg %></li>
+  <% end %>
   </ul>
-</div>
-<% end %>
+  </div>
+  <% end %>
 </div>
 
 <%= form_for @user do |f|%>
-  <%= f.label :username %><br>
-  <%= f.text_field :username, required: true %><br>
-  <%= f.label :password %><br>
-  <%= f.password_field :password, required: true %><br>
+  
+  <p>
+  <%= f.label :username %>
+  <%= f.text_field :username, required: true %>
+  </p>
+  <p>
+  <%= f.label :password %>
+  <%= f.password_field :password, required: true %>
+  </p>
   <%= f.label(:admin, "Admin") %>
   <%= f.check_box(:admin, id: "user_admin") %>
   <%= f.submit %>
