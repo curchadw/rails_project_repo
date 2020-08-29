@@ -9,10 +9,13 @@ class ApplicationController < ActionController::Base
         redirect_to '/' unless logged_in
       end  
       
-      
       def current_user
-          User.where(id: session[:user_id]).first
+       current_user ||= User.where(id: session[:user_id]).first if session[:user_id]
       end
+      
+      # def current_user
+      #     User.where(id: session[:user_id]).first
+      # end
       
       def logged_in
           !!current_user

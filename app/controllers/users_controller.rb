@@ -14,7 +14,6 @@ class UsersController < ApplicationController
         @user = User.create(user_params)       
         if @user.save 
             session[:user_id] = @user.id                                                                                                        
-            flash[:success] = "Welcome to Flight Scheduler!"
             redirect_to @user
         else
             render 'new'

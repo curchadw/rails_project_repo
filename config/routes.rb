@@ -59,6 +59,6 @@ Rails.application.routes.draw do
   get '/users/:user_id/passengers/:id/edit', to: 'passengers#edit', as: 'edit_passenger'
 
   
-
-
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
+  
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 5) do
+ActiveRecord::Schema.define(version: 2020_08_28_043700) do
 
   create_table "destinations", force: :cascade do |t|
     t.string "name"
@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(version: 5) do
     t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "provider"
+    t.string "uid"
   end
 
 end
