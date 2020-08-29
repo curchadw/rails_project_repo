@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :users, except:[:new, :show, :update, :destroy] do
+  resources :users, except:[:new, :show] do
       resources :destinations, except:[:index, :show]
       resources :flights, only: [:update, :destroy, :create]
       resources :pilots,  only: [:update, :destroy, :create]
@@ -15,8 +15,7 @@ Rails.application.routes.draw do
       get 'login',  to: 'sessions#new', as: 'login'
       post 'login', to: 'sessions#create'
       get '/users/:id', to: 'users#show'
-      put '/users/:id', to: 'users#update'
-      delete '/users/:id', to: 'users#destroy'
+      delete '/users', to: 'users#destroy'
   
       delete 'session', to: 'sessions#destroy', as: 'logout'
 
@@ -61,6 +60,6 @@ Rails.application.routes.draw do
   get '/users/:user_id/passengers/:id/edit', to: 'passengers#edit', as: 'edit_passenger'
 
   
-  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
+  
   
 end

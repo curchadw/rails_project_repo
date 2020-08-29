@@ -14,8 +14,7 @@ class PilotsController < ApplicationController
 
     def create
         @pilot = Pilot.new(pilot_params)
-        
-            if @pilot.save!
+        if @pilot.save
       
             redirect_to pilot_path(current_user,@pilot.id)
         else

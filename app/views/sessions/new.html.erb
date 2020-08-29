@@ -1,14 +1,24 @@
 <h1>Login</h1>
-<%= form_tag '/login' do %>   
-<div>   
-    <%= label_tag :username %><br>   
-    <%= text_field_tag :username %>   
+<ul>
+<% flash.each do |type, msg| %>
+  <div>
+    <li style="color:red;"><%= msg %></li>
+  </div>
+
+<% end %>
+</ul>
+<div>
+<%= form_tag '/login' do%>
+<div> 
+    <%= label_tag "username", :username %><br>   
+    <%= text_field_tag "username", :username %>   
 </div>   
 <div>   
-    <%= label_tag :password %><br>   
-    <%= password_field_tag :password %>   
+    <%= label_tag "password", :password %><br>   
+    <%= password_field_tag "password", :password %>   
 </div>   
 <div>   
     <%= submit_tag "Log In" %>   
 </div>   
 <% end %>  
+</div>
