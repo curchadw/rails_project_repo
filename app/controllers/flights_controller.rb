@@ -1,5 +1,5 @@
 class FlightsController < ApplicationController
-    before_action :verified_user, only: [:new]
+    before_action :verified_user
 
     def index
         @flights = Flight.search(params[:search])
@@ -21,8 +21,10 @@ class FlightsController < ApplicationController
   
             redirect_to flight_path(current_user,@flight)
         else
+            flash.now[:danger] = 'Flight Number, Destination, and Pilot have to be selected at least'
+            render :new
   
-            render :new 
+           
         end
     end
 

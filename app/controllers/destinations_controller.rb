@@ -1,4 +1,6 @@
 class DestinationsController < ApplicationController
+    before_action :verified_user
+
     def index
         @destinations = Destination.all
     end

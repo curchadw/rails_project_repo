@@ -9,8 +9,8 @@ class User < ActiveRecord::Base
     validates_length_of :username,  in: 6..10
     validates_length_of :password, in: 6..20 
     validates :username, uniqueness: true
-   
 
+    
    
     
 

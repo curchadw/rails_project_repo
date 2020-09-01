@@ -1,5 +1,15 @@
 <h2>Add a Pilot</h2>
 
+<ul>
+<% flash.each do |type, msg| %>
+  <div>
+    <li style="color:red;"><%= msg %></li>
+  </div>
+
+<% end %>
+</ul>
+
+
 <div>
 <%= form_for @pilot do |f|%>
   <%= f.label :rank %>

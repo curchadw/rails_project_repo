@@ -1,8 +1,17 @@
 class PilotsController < ApplicationController
+    before_action :verified_user
+
     
     def index
         @pilots = Pilot.all
+        if params[:search]
+            @pilots = Pilot.search(params[:search]).order("created_at DESC")
+        else
+            @pilots = Pilot.all.order("created_at DESC")
+        end        
     end
+    
+    
 
     def show
         @pilot = Pilot.find(params[:id])
@@ -13,13 +22,14 @@ class PilotsController < ApplicationController
     end
 
     def create
-        @pilot = Pilot.new(pilot_params)
+        @pilot = Pilot.create(pilot_params)
         if @pilot.save
       
             redirect_to pilot_path(current_user,@pilot.id)
         else
-      
-        render :new 
+            flash.now[:danger] = 'Pilot Info needs to be filled to continue'
+            render :new
+        
         end
     end
 
@@ -47,7 +57,7 @@ class PilotsController < ApplicationController
     private
 
     def pilot_params
-        params.require(:pilot).permit(:id, :name, :rank)
+        params.require(:pilot).permit(:id, :name, :rank, :search)
     end
     
 end

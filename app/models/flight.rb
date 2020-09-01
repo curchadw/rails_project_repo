@@ -4,6 +4,8 @@ class Flight < ActiveRecord::Base
     belongs_to :pilot
     accepts_nested_attributes_for :passengers
     belongs_to :user, class_name: "Flight" ,optional: true 
+    validates_presence_of :flight_number
+    validates :flight_number, uniqueness: true
 
 
     def dest_name=(name)

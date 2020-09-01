@@ -4,5 +4,9 @@ class Pilot < ActiveRecord::Base
     belongs_to :user, optional: true
     validates_presence_of :name, :rank
     validates :name, uniqueness: true
+
+    def self.search(search)
+        where("name LIKE ?")
+    end
 end
 

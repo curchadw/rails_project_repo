@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
     helper_method :logged_in
     helper_method :verified_user
     add_flash_types :info, :error, :warning
+    before_action :verified_user
+
 
 
 
@@ -23,4 +25,15 @@ class ApplicationController < ActionController::Base
           !!current_user
         
       end
+
+      
+ 
+    def require_login
+      unless logged_in
+      flash[:error] = "You must be logged in to access this section"
+      redirect_to login_path
+     end
+  end
+
+
 end

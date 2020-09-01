@@ -29,10 +29,13 @@ Rails.application.routes.draw do
   
   # post '/login'   to: 'sessions#create'
   # post '/signin', to: 'sessions#create'
-  
  
   
-  root 'static#home'
+  
+  root to:'static#home'
+  get "/auth/github/callback" => "github#create"
+  
+ 
  
   #destinations
   

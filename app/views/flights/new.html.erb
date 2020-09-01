@@ -1,4 +1,14 @@
 <%= form_with model: @flight do |f| %>
+
+<ul>
+<% flash.each do |type, msg| %>
+  <div>
+    <li style="color:red;"><%= msg %></li>
+  </div>
+
+<% end %>
+</ul>
+
 <div>
 Create a Flight:
 <%= f.label :flight_number %>
