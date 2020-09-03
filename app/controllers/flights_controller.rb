@@ -2,7 +2,8 @@ class FlightsController < ApplicationController
     before_action :verified_user
 
     def index
-        @flights = Flight.search(params[:search])
+        @flights = Flight.order_by_flight_international
+        @dom_flights = Flight.order_by_flight_domestic
     end
 
     
@@ -10,8 +11,7 @@ class FlightsController < ApplicationController
     def new
         @flight = Flight.new
         20.times {@flight.passengers.build}
-        # @flight.destinations.build
-        # @flight.pilots.build
+       
     end
 
     def create

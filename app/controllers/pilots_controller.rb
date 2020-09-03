@@ -5,9 +5,9 @@ class PilotsController < ApplicationController
     def index
         @pilots = Pilot.all
         if params[:search]
-            @pilots = Pilot.search(params[:search]).order("created_at DESC")
+            @pilots = Pilot.where(params[:search]).order("created_at DESC")
         else
-            @pilots = Pilot.all.order("created_at DESC")
+            @pilots = Pilot.all
         end        
     end
     

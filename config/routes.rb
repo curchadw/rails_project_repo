@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  devise_for :users
   resources :users, except:[:new, :show] do
       resources :destinations, except:[:index, :show]
       resources :flights, only: [:update, :destroy, :create]
@@ -10,9 +11,14 @@ Rails.application.routes.draw do
 
   end
 
+      root to:'static#home'
+      # get "/auth/github/callback" => "github#create"
+      
   
-      get '/users/new', to: 'users#new', as: 'new_user'
-      get 'login',  to: 'sessions#new', as: 'login'
+ 
+  
+      get '/users/signup', to: 'users#new', as: 'new_user'
+      get '/login',  to: 'sessions#new', as: 'login'
       post 'login', to: 'sessions#create'
       get '/users/:id', to: 'users#show'
       delete '/users', to: 'users#destroy'
@@ -32,10 +38,7 @@ Rails.application.routes.draw do
  
   
   
-  root to:'static#home'
-  get "/auth/github/callback" => "github#create"
   
- 
  
   #destinations
   

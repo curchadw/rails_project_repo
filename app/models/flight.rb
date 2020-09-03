@@ -6,7 +6,9 @@ class Flight < ActiveRecord::Base
     belongs_to :user, class_name: "Flight" ,optional: true 
     validates_presence_of :flight_number
     validates :flight_number, uniqueness: true
-
+    scope :order_by_flight_international, -> { order(flight_number: :asc).where("LENGTH(flight_number) > 3") }
+    scope :order_by_flight_domestic, -> { order(flight_number: :asc).where("LENGTH(flight_number) < 3") }
+    
 
     def dest_name=(name)
         
@@ -27,17 +29,6 @@ class Flight < ActiveRecord::Base
         self.pilot ? self.pilot.name : nil
     end
 
-    def self.search(search)
-        if search
-            flight_num = Flight.find_by(flight_number: search)
-                if flight_num
-                    self.where(flight_id: flight_num)
-                else
-                    @flights = Flight.all
-                end
-        else
-            @flights = Flight.all
-        end
-    end
+    
 
 end

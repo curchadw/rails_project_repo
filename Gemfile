@@ -22,12 +22,13 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
+gem 'omniauth-github'
+gem 'omniauth'
 
 gem 'figaro'
 
 gem 'devise'
-
+gem 'therubyracer'
 
 gem 'dotenv-rails'
 # Use Active Storage variant

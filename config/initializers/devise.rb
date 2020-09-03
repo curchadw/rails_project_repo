@@ -14,7 +14,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '566aa2cd5fc32e9c93aed2d7b5005918bd7f378fad05cea0684cac45000c8c5545d2261d2e0fe739c593b875cda6f2942c28167e29a786c58ba4fb02c123e2d0'
+  # config.secret_key = '49a37dad9e4fb6f2fbc7fbc486a1dccad80d970e3e1bf33f01cac386803d976743f522d5e601322419290140a66694b12d5797bc3d8435cf84f6217194787918'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -126,7 +126,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '8fe0961eaa224d039a922029d1b58a711e5ddb39e108e921948c9fbf93c89aa8f86d5ee0c11e0685f11673c11d3249119a9e58dceba6c2e18299f54944cfcaaa'
+  # config.pepper = '3a66a5df438fd37e9ddd5814ba1bd8feb5d3a4f5b142906a38bcd05c1b323ee022b1f829502af2dc90d9b951b5373e34fd4b9b0f548531c7ef9f9563d955fc92'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -272,7 +272,7 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-
+  config.omniauth :github, ENV['GITHUB_KEY'], ENV['GITHUB_SECRET'] 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
@@ -308,5 +308,4 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
-  config.omniauth :github, '14c355d235ee0e526127', '285d6eb8dbe53608c390196fc6277e943a71ffa7', :scope => 'user:email'
 end

@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
     has_many :flights
     has_many :pilots
     has_many :passengers
@@ -10,7 +14,7 @@ class User < ActiveRecord::Base
     validates_length_of :password, in: 6..20 
     validates :username, uniqueness: true
 
-    
+    devise :database_authenticatable, :registerable, :omniauthable, :recoverable, :rememberable, :trackable, :validatable
    
     
 
