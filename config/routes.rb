@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
-  devise_for :users
-  resources :users, except:[:new, :show] do
+ 
+      resources :users, except:[:new, :show] do
       resources :destinations, except:[:index, :show]
       resources :flights, only: [:update, :destroy, :create]
       resources :pilots,  only: [:update, :destroy, :create]
@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   end
 
       root to:'static#home'
-      # get "/auth/github/callback" => "github#create"
+     
+      get '/auth/:provider/callback', :to => 'github#create'
       
   
  
