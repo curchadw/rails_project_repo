@@ -13,24 +13,11 @@
 <ol>
 <% @pilots.each do |pilot|%>
     <% if current_user.admin %>
-        <h3><li><%= pilot.rank %>/<%= pilot.name %> | <%= link_to 'Edit', edit_pilot_path(current_user, pilot) %> |  <%= link_to 'Delete',user_pilot_path(current_user, pilot), method: :delete %></li></h3>
-            Where am I going:
-                <ul>
-                    
-                    <% pilot.destinations do |destination| %>
-                   
-                        <li><%= destination.name %></li>
-                    <% end %>
-                </ul>
+        <h3><li>Rank: <%= pilot.rank %> / Name: <%= pilot.name %> | <%= link_to 'Edit', edit_pilot_path(current_user, pilot) %> |  <%= link_to 'Delete',user_pilot_path(current_user, pilot), method: :delete %></li></h3>
+           
     <% else %>
-        <h3><li><%= pilot.rank %>/<%= pilot.name %></li></h3>
-            Where am I going:
-                <ul>
-                   
-                    <% pilot.destinations do |destination| %>
-                        <li><%= destination.name %></li>
-                    <% end %>
-                </ul>
+        <h3><li>Rank: <%= pilot.rank %> / Name: <%= pilot.name %></li></h3>
+           
     <% end %>
 <% end %>
 </ol>

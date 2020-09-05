@@ -1,11 +1,7 @@
 <h2>Update Pilot</h2>
 
 <div>
-<%= form_for @pilot do |f|%>
-  <%= f.label :rank %>
-  <%= f.text_field :rank %><br>
-  <%= f.label :name %>
-  <%= f.text_field :name %><br>
-  <%= f.submit "Save Changes" %>
+<%= form_tag @pilot, method: "put" do |f|%>
+  <%= render 'form' %>
 <% end %>
 </div>

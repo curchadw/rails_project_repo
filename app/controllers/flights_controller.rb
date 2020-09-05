@@ -1,5 +1,6 @@
 class FlightsController < ApplicationController
     before_action :verified_user
+    layout 'flightlayout'
 
     def index
         @flights = Flight.order_by_flight_international
@@ -10,7 +11,7 @@ class FlightsController < ApplicationController
     
     def new
         @flight = Flight.new
-        20.times {@flight.passengers.build}
+        10.times {@flight.passengers.build}
        
     end
 

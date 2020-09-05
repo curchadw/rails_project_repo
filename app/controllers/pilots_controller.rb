@@ -1,6 +1,6 @@
 class PilotsController < ApplicationController
     before_action :verified_user
-
+    layout 'flightlayout' 
     
     def index
         @pilots = Pilot.all
@@ -57,7 +57,7 @@ class PilotsController < ApplicationController
     private
 
     def pilot_params
-        params.require(:pilot).permit(:id, :name, :rank, :search)
+        params.permit(:id, :name, :rank, :search)
     end
     
 end

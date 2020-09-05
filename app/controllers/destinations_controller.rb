@@ -1,5 +1,6 @@
 class DestinationsController < ApplicationController
     before_action :verified_user
+    layout 'flightlayout'
 
     def index
         @destinations = Destination.order_by_name

@@ -11,11 +11,7 @@
 
 
 <div>
-<%= form_for @pilot do |f|%>
-  <%= f.label :rank %>
-  <%= f.text_field :rank %><br>
-  <%= f.label :name %>
-  <%= f.text_field :name %><br>
-  <%= f.submit %>
+<%= form_tag @pilot do |f|%>
+  <%= render 'form' %>
 <% end %>
 </div>
