@@ -17,7 +17,7 @@ class GithubController < ApplicationController
           
           session[:user_id] = @user.id
        
-          redirect_to @user
+          redirect_to @user, notice: 'Logged in!'
         
     end
      

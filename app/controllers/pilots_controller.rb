@@ -5,10 +5,12 @@ class PilotsController < ApplicationController
     def index
         @pilots = Pilot.all
         if params[:search]
-            @pilots = Pilot.where(params[:search]).order("created_at DESC")
+            @pilots = Pilot.search(params[:serach])        
         else
             @pilots = Pilot.all
-        end        
+        end  
+        
+        
     end
     
     
@@ -57,7 +59,7 @@ class PilotsController < ApplicationController
     private
 
     def pilot_params
-        params.permit(:id, :name, :rank, :search)
+        params.permit(:id, :name, :rank, :user_id, :search)
     end
     
 end

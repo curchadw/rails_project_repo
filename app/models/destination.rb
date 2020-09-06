@@ -5,5 +5,7 @@ class Destination < ActiveRecord::Base
 
     scope :order_by_name, -> { order(name: :asc) }
     
+
+    
     
 end

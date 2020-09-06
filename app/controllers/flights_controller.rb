@@ -60,7 +60,7 @@ class FlightsController < ApplicationController
     private
 
     def flight_params
-        params.require(:flight).permit(:flight_number, :flight_id, :destination_id, :pilot_id, :search, :pilot_id =>[], :destination_id =>[], passengers_attributes:[:id, :name])
+        params.require(:flight).permit(:flight_number, :flight_id, :destination_id, :pilot_id, :pilot_id =>[], :destination_id =>[], passengers_attributes:[:id, :name])
     end
     
     

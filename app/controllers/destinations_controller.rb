@@ -53,7 +53,7 @@ class DestinationsController < ApplicationController
     private
 
     def dest_params
-        params.require(:destination).permit(:name)
+        params.permit(:name)
     end
 
     

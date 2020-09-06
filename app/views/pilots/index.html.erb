@@ -1,4 +1,7 @@
 <div>
+<%= link_to 'Back', user_path(current_user) %>
+</div><br>
+<div>
 <%= form_tag pilots_path :method => "get" do %>
     <%= label_tag(:search, "Which pilot are you looking for?") %>
     Pilot: <%= text_field_tag(:search, params[:search]) %>
@@ -23,4 +26,6 @@
 </ol>
 </div>
 
+<div>
 <%= link_to 'Back', user_path(current_user) %>
+</div>

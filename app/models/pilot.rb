@@ -7,7 +7,16 @@ class Pilot < ActiveRecord::Base
     validates :name, uniqueness: true
 
     def self.search(search)
-        where("name LIKE ?")
+        if search
+            user = User.find_by(name: search)
+            if  user
+                self.where(user_id: user)
+            else
+                Pilot.all
+            end
+        else
+            Pilot.all
+        end
     end
 end
 

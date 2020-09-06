@@ -1,17 +1,21 @@
 <h2>Users Of The Application</h2>
+<div>
 <ol>
-Non admin users:
+Non Admin Users:
 <% @users.each do |user| %>
     <% if user.admin %>
     
     <% else%>
 
-    <li><%= user.username %> | <%= link_to 'Delete',users_path(current_user, user), method: :delete %></li>
+    <li><%= user.username %> | <%= link_to 'Delete',user_path(user), method: :delete %></li>
     <% end %>
 <% end %>
 </ol>
+</div>
+<hr>
+<div>
 <ol>
-Admin users:
+All Users:
 <% @users.each do |user| %>
     <% if user.admin != current_user %>
     <li><%= user.username %></li>
@@ -19,4 +23,9 @@ Admin users:
     <% end %>
 <% end %>
 </ol>
+</div>
+
+<%= link_to 'Back', user_path(current_user) %>
+
+
 
