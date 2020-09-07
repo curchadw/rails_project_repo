@@ -1,7 +1,6 @@
 class Flight < ActiveRecord::Base
     has_many :passengers
     belongs_to :destination
-    has_many :destinations
     belongs_to :pilot
     accepts_nested_attributes_for :passengers
     belongs_to :user, class_name: "Flight" ,optional: true 

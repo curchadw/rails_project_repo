@@ -10,9 +10,18 @@
 </ul>
 
 <div>
-Create a Flight:
+Create a flight number:
 <%= f.label :flight_number %>
 <%= f.text_field :flight_number %>
+</div><br>
+
+<div>
+<%= f.label :date_of_flight %>
+<%= f.date_field :date_of_flight %>
+</div><br>
+<div>
+<%= f.label :flight_time %>
+<%= f.time_field :flight_time %>
 </div><br>
 <div>
 Assign Pilot:

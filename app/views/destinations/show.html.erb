@@ -1,3 +1,4 @@
+<div>
 <h2>Destination</h2>
 <div>
     <h3><%= @destination.name %></h3>
@@ -6,10 +7,11 @@
 Current flights to this destination:
 <ul>
 <% @destination.flights.each do |flt| %>
-<li>Flight Num:<% link_to flt.flight_number %></li>
+<li>Flight Num: <%= link_to flt.flight_number, flight_path(current_user, flt) %></li>
 
 <% end %>
 </ul>
+</div>
 </div>
 
 <%= link_to 'Back', user_destinations_path %>

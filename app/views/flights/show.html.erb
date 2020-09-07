@@ -1,7 +1,8 @@
 <%= link_to 'Home Screen', user_path(current_user)%>
 <h2>Flight Number: <%= @flight.flight_number%></h2>
 <div>
-
+<h3>Date: <%= @flight.date_of_flight.to_date.strftime("%b %d %Y") %></h3>
+<h3>Time: <%= @flight.flight_time.to_time.strftime("%r") %></h3>
 <h3>Destination: <%= @flight.dest_name %></h3>
 <h3>Pilot: <%= @flight.pilot_name %></h3>
 </div>
