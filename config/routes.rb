@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   
  
       
-  
+      get '/users/:user_id/pilots/search' => 'pilots#search', :as => 'search_pilot'
  
   
   # post '/login'   to: 'sessions#create'

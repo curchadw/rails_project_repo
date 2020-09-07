@@ -7,7 +7,7 @@ class Flight < ActiveRecord::Base
     validates_presence_of :flight_number
     validates :flight_number, uniqueness: true
     scope :order_by_flight_international, -> { order(flight_number: :asc).where("LENGTH(flight_number) > 3") }
-    scope :order_by_flight_domestic, -> { order(flight_number: :asc).where("LENGTH(flight_number) < 3") }
+    scope :order_by_flight_domestic, -> { order(flight_number: :asc).where("LENGTH(flight_number) <= 2 ") }
     
 
     def dest_name=(name)

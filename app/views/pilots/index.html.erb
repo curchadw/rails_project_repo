@@ -2,10 +2,10 @@
 <%= link_to 'Back', user_path(current_user) %>
 </div><br>
 <div>
-<%= form_tag pilots_path :method => "get" do %>
+<%= form_tag(search_pilot_path, :method => "get") do %>
     <%= label_tag(:search, "Which pilot are you looking for?") %>
-    Pilot: <%= text_field_tag(:search, params[:search]) %>
-    <%= submit_tag 'Search', pilot: nil %>
+    <%= search_field_tag(:search, params[:search], placeholder: "Search") %>
+    <%= submit_tag 'Search', name: nil %>
 <% end %>
 </div>
 
@@ -15,6 +15,7 @@
 <div>
 <ol>
 <% @pilots.each do |pilot|%>
+   
     <% if current_user.admin %>
         <h3><li>Rank: <%= pilot.rank %> / Name: <%= pilot.name %> | <%= link_to 'Edit', edit_pilot_path(current_user, pilot) %> |  <%= link_to 'Delete',user_pilot_path(current_user, pilot), method: :delete %></li></h3>
            

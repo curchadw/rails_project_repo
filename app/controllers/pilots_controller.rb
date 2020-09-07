@@ -4,11 +4,12 @@ class PilotsController < ApplicationController
     
     def index
         @pilots = Pilot.all
-        if params[:search]
-            @pilots = Pilot.search(params[:serach])        
-        else
-            @pilots = Pilot.all
-        end  
+        
+        # if params[:search]
+        #     @pilots = Pilot.search(params[:search])        
+        # else
+        #     @pilots = Pilot.all
+        # end  
         
         
     end
@@ -32,6 +33,15 @@ class PilotsController < ApplicationController
             flash.now[:danger] = 'Pilot Info needs to be filled to continue'
             render :new
         
+        end
+    end
+
+    def search
+        if params[:search].blank?
+            redirect_to(pilots_path, alert: "Empty field!") and return
+        else
+            @parameter = params[:search].downcase
+            @results = Pilot.all.where("lower(name) LIKE :search", search: "%#{@parameter}")
         end
     end
 

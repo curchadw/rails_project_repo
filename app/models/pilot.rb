@@ -6,17 +6,17 @@ class Pilot < ActiveRecord::Base
     validates_presence_of :name, :rank
     validates :name, uniqueness: true
 
-    def self.search(search)
-        if search
-            user = User.find_by(name: search)
-            if  user
-                self.where(user_id: user)
-            else
-                Pilot.all
-            end
-        else
-            Pilot.all
-        end
-    end
+    # def self.search(search)
+    #     if search
+    #         pilot = Pilot.find_by(name: search)
+    #         if  pilot
+    #             self.where(name: pilot)
+    #         else
+    #             Pilot.all
+    #         end
+    #     else
+    #         Pilot.all
+    #     end
+    # end
 end
 
