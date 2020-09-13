@@ -1,34 +1,44 @@
 <%= form_with model: @flight do |f| %>
-<div>
-Create a Flight:
+
+<ul>
+<% flash.each do |type, msg| %>
+  <div>
+    <li style="color:red;"><%= msg %></li>
+  </div>
+
+<% end %>
+</ul>
+
+<div class='flight_area'>
+
+
 <%= f.label :flight_number %>
-<%= f.text_field :flight_number %>
-</div><br>
+<%= f.text_field :flight_number %><br>
 
-<div>
+
+
 <%= f.label :date_of_flight %>
-<%= f.date_field :date_of_flight %>
-</div><br>
-<div>
+<%= f.date_field :date_of_flight %><br>
+
 <%= f.label :flight_time %>
-<%= f.time_field :flight_time %>
+<%= f.time_field :flight_time %><br>
+
+<%= f.label :pilot_id %>
+<%= f.collection_select(:pilot_id, Pilot.all, :id, :name, :prompt => "Please Select a Pilot", :class => 'collection')   %>
+
+
+
+
+
+<div>
+<%= f.label :destination_id %>
+<%= f.collection_select(:destination_id, Destination.all, :id, :name, :prompt => "Please Select a Destination City", :class => 'collection') %>
 </div><br>
 
 <div>
-Assign Pilot:
-<%= f.collection_select(:pilot_id, Pilot.all, :id, :name, :prompt => "Please Select a Pilot") %>
-</div><br>
-
-
-
-
-<div>
-Choose Destination:
-<%= f.collection_select(:destination_id, Destination.all, :id, :name, :prompt => "Please Select a Destination City") %>
-</div><br>
-
-<div>
+<label>
 Add Passengers:
+</label>
 <ol>
 <%= f.fields_for :passengers do |passenger|%>
     <li>
@@ -40,8 +50,7 @@ Add Passengers:
 <% end %>
 </ol>
 </div>
-<%= f.submit 'Save Changes' %>
+<%= f.submit 'Update Flight' %>
 
 <% end %>
-
 <%= link_to 'Back', flights_path(current_user) %>

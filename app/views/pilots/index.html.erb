@@ -1,32 +1,47 @@
-<div>
-<%= link_to 'Back', user_path(current_user) %>
-</div><br>
-<div>
+<header>
+<div class='back_link'>
+<p><%= link_to 'Back', user_path(current_user) %></p>
+</div>
+
+
+<div class= 'search'>
 <%= form_tag(search_pilot_path, :method => "get") do %>
-    <%= label_tag(:search, "Which pilot are you looking for?") %>
-    <%= search_field_tag(:search, params[:search], placeholder: "Search") %>
+    <%= search_field_tag(:search, params[:search], placeholder: "Search for pilot") %>
     <%= submit_tag 'Search', name: nil %>
 <% end %>
 </div>
+</header>
+<div class='container'>
+
+<div>
+<% flash.each do |type, msg| %>
+  <div>
+    <li style="color:red;"><%= msg %></li>
+  </div>
+
+<% end %>
+</div>
+
 
 <h1>Current Pilot Roster</h1>
 <h2><%= link_to 'Add a Pilot', new_pilot_path  %></h2>
 
 <div>
-<ol>
+<ul>
 <% @pilots.each do |pilot|%>
    
     <% if current_user.admin %>
-        <h3><li>Rank: <%= pilot.rank %> / Name: <%= pilot.name %> | <%= link_to 'Edit', edit_pilot_path(current_user, pilot) %> |  <%= link_to 'Delete',user_pilot_path(current_user, pilot), method: :delete %></li></h3>
+        <h4><li><%= pilot.rank %>, <%= pilot.name %> | <%= link_to 'Edit', edit_pilot_path(current_user, pilot) %> |  <%= link_to 'Delete',user_pilot_path(current_user, pilot), method: :delete %></li></h4>
            
     <% else %>
-        <h3><li>Rank: <%= pilot.rank %> / Name: <%= pilot.name %></li></h3>
+        <h4><li><%= pilot.rank %>, <%= pilot.name %></li></h4>
            
     <% end %>
 <% end %>
-</ol>
+</ul>
 </div>
 
-<div>
-<%= link_to 'Back', user_path(current_user) %>
+<div class='back_link'>
+<p><%= link_to 'Back', user_path(current_user) %></p>
+</div>
 </div>

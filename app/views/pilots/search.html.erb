@@ -1,7 +1,12 @@
-<h3>Search Result</h3>  
+<div class='container'>
+<h3>Pilot Search Results</h3>  
 
     <ul>
     <% @results.each do |result| %>  
-        <li><%= result.pilot.name %></li><br>  
+        <h4><li><%= result.rank%> <%= link_to result.name, pilot_path(current_user, result) %></li><br></h4>  
     <% end %>
     </ul>
+
+
+    <%= link_to 'Back', user_pilots_path %>
+</div>

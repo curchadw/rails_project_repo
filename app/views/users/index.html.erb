@@ -1,6 +1,7 @@
+<div class='container users'>
 <h2>Users Of The Application</h2>
 <div>
-<ol>
+<ul>
 Non Admin Users:
 <% @users.each do |user| %>
     <% if user.admin %>
@@ -10,11 +11,11 @@ Non Admin Users:
     <li><%= user.username %> | <%= link_to 'Delete',user_path(user), method: :delete %></li>
     <% end %>
 <% end %>
-</ol>
+</ul>
 </div>
 <hr>
 <div>
-<ol>
+<ul>
 All Users:
 <% @users.each do |user| %>
     <% if user.admin != current_user %>
@@ -22,10 +23,11 @@ All Users:
     
     <% end %>
 <% end %>
-</ol>
+</ul>
 </div>
 
 <%= link_to 'Back', user_path(current_user) %>
+</div>
 
 
 

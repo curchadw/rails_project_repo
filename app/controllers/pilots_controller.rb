@@ -38,10 +38,12 @@ class PilotsController < ApplicationController
 
     def search
         if params[:search].blank?
-            redirect_to(pilots_path, alert: "Empty field!") and return
+            # flash.now[:danger] = 'Empty field!'
+            redirect_to(pilots_path current_user, alert: "Empty field!")
+            
         else
             @parameter = params[:search].downcase
-            @results = Pilot.all.where("lower(name) LIKE :search", search: "%#{@parameter}")
+            @results = Pilot.all.where("lower(name) LIKE :search ", search: @parameter )
         end
     end
 

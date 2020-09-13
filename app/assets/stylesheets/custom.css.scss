@@ -1,0 +1,87 @@
+.container{
+    padding: 0;
+    margin: 0 20px;
+}
+
+li{
+    list-style-type: none;
+}
+
+.dest_link{
+    margin-left: 50px;
+}
+
+.options > p {
+    font-size: 1.5em;
+    margin-left: 20px;
+}
+
+
+.content{
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    
+    padding: 10px;
+}
+
+label {
+    width: 150px;
+    display: inline-block;
+}
+
+.collection{
+    padding-left: 100px;
+}
+
+.back_link > p {
+    font-size: 1.5em;
+    margin-left: 20px;
+}
+
+.back_link{
+   font-size: 1.5em; 
+}
+
+.flight_area{
+    margin-left: 25px;
+}
+
+
+.app_closing{
+    margin-left: 25px;
+}
+
+header{
+    padding-top: 4.2em;
+    display: flex;
+}
+
+.search{
+    margin-left: 75%;
+}
+
+
+.app_heading{
+    text-align: center;
+    background-color: black;
+    color: white;
+    height: 1.5em;
+    position: fixed;
+    width: 100%;
+}
+
+.destshow{
+    padding-top: 20px;
+}
+
+.flightshow{
+    padding-top: 40px;
+    margin-top: 0;
+}
+
+.flightsshow, .users{
+    padding-top: 60px;
+    margin-top: 0;  
+}
+

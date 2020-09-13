@@ -1,13 +1,13 @@
 <div>
 <% flash.each do |type, msg| %>
   <div>
-    <li style="color:green;"><%= msg %></li>
+    <h4><li style="color:green;"><%= msg %></li></h4>
   </div>
 
 <% end %>
 </div>
 
-
+<div class='content'>
 <h2>Welcome to Flight Scheduler</h2>
 
 <% if logged_in %>
@@ -17,7 +17,8 @@
 <h3><%= link_to "Create New Flight", new_flight_path(current_user) %></h3>
 <h3><%= link_to "Meet your pilots", user_pilots_path(current_user) %></h3>
 <h3><%= link_to "See what cities we are currently servicing", destinations_path(current_user)%></h3>
-<h3><%= link_to "Current Flight", flights_path(current_user)%></h3>
+<h3><%= link_to "Current Flight(s)", flights_path(current_user)%></h3>
 <div>
 
 <%= link_to "Log Out", "/session", method: :delete %> | <% if current_user.admin%> <%= link_to "Admin Use Only" , users_path %> <% end %>
+</div>
