@@ -1,56 +1,61 @@
+<div class = 'container'>
+<div class='flight_area'>
 <%= form_with model: @flight do |f| %>
 
-<ul>
-<% flash.each do |type, msg| %>
-  <div>
-    <li style="color:red;"><%= msg %></li>
+  <ul>
+  <% flash.each do |type, msg| %>
+    <div>
+      <li style="color:red;"><%= msg %></li>
+    </div>
+
+  <% end %>
+  </ul>
+
+
+
+
+  <%= f.label :flight_number %>
+  <%= f.text_field :flight_number %><br>
+
+
+
+  <%= f.label :date_of_flight %>
+  <%= f.date_field :date_of_flight %><br>
+
+  <%= f.label :flight_time %>
+  <%= f.time_field :flight_time %><br>
+
+  <%= f.label :pilot_id %>
+  <%= f.collection_select(:pilot_id, Pilot.all, :id, :name, :prompt => "Please Select a Pilot", :class => 'collection')   %>
+
+
+
+
+
+    <div>
+    <%= f.label :destination_id %>
+    <%= f.collection_select(:destination_id, Destination.all, :id, :name, :prompt => "Please Select a Destination City", :class => 'collection') %>
+    </div><br>
+
+    <div>
+      <label>
+      Add Passengers:
+      </label>
+        <ol>
+        <%= f.fields_for :passengers do |passenger|%>
+            <li>
+                <%= passenger.label :name%>
+                <%= passenger.text_field :name%>
+            </li>
+            
+
+        <% end %>
+        </ol>
+      </div>
+        <%= f.submit 'Create Flight' %>
+
+        <% end %>
+        <%= link_to 'Back', flights_path(current_user) %>
+    </div>
   </div>
-
-<% end %>
-</ul>
-
-<div class='flight_area'>
-
-
-<%= f.label :flight_number %>
-<%= f.text_field :flight_number %><br>
-
-
-
-<%= f.label :date_of_flight %>
-<%= f.date_field :date_of_flight %><br>
-
-<%= f.label :flight_time %>
-<%= f.time_field :flight_time %><br>
-
-<%= f.label :pilot_id %>
-<%= f.collection_select(:pilot_id, Pilot.all, :id, :name, :prompt => "Please Select a Pilot", :class => 'collection')   %>
-
-
-
-
-
-<div>
-<%= f.label :destination_id %>
-<%= f.collection_select(:destination_id, Destination.all, :id, :name, :prompt => "Please Select a Destination City", :class => 'collection') %>
-</div><br>
-
-<div>
-<label>
-Add Passengers:
-</label>
-<ol>
-<%= f.fields_for :passengers do |passenger|%>
-    <li>
-        <%= passenger.label :name%>
-        <%= passenger.text_field :name%>
-    </li>
-    
-
-<% end %>
-</ol>
 </div>
-<%= f.submit 'Create Flight' %>
-
-<% end %>
-<%= link_to 'Back', flights_path(current_user) %>

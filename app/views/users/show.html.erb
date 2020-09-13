@@ -1,11 +1,11 @@
-<div>
+<div class= 'container usershow'>
 <% flash.each do |type, msg| %>
   <div>
     <h4><li style="color:green;"><%= msg %></li></h4>
   </div>
 
 <% end %>
-</div>
+
 
 <div class='content'>
 <h2>Welcome to Flight Scheduler</h2>
@@ -21,4 +21,6 @@
 <div>
 
 <%= link_to "Log Out", "/session", method: :delete %> | <% if current_user.admin%> <%= link_to "Admin Use Only" , users_path %> <% end %>
+</div>
+
 </div>

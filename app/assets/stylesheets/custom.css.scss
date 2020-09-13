@@ -21,8 +21,9 @@ li{
     margin-left: auto;
     margin-right: auto;
     width: 50%;
+    padding: 20px;
     
-    padding: 10px;
+    
 }
 
 label {
@@ -44,6 +45,8 @@ label {
 }
 
 .flight_area{
+    padding-top: 3.125em;
+    
     margin-left: 25px;
 }
 
@@ -63,6 +66,7 @@ header{
 
 
 .app_heading{
+    
     text-align: center;
     background-color: black;
     color: white;
@@ -83,5 +87,25 @@ header{
 .flightsshow, .users{
     padding-top: 60px;
     margin-top: 0;  
+}
+
+.main{
+    padding-top: 60px;
+    margin-top: 0;   
+}
+
+
+footer{
+    text-align: center;
+    position:fixed;
+    bottom:0;
+    width:100%;
+    height:60px;
+    color: white;   /* Height of the footer */
+    background:black;
+}
+
+.usershow{
+    margin-left: 0;
 }
 
