@@ -1,7 +1,7 @@
 class Flight < ActiveRecord::Base
     has_many :passengers
     belongs_to :destination
-    belongs_to :pilot
+    belongs_to :pilot, counter_cache: true
     accepts_nested_attributes_for :passengers
     belongs_to :user, class_name: "Flight" ,optional: true 
     validates_presence_of :flight_number

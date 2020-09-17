@@ -5,18 +5,7 @@ class Pilot < ActiveRecord::Base
     
     validates_presence_of :name, :rank
     validates :name, uniqueness: true
-
-    # def self.search(search)
-    #     if search
-    #         pilot = Pilot.find_by(name: search)
-    #         if  pilot
-    #             self.where(name: pilot)
-    #         else
-    #             Pilot.all
-    #         end
-    #     else
-    #         Pilot.all
-    #     end
-    # end
+    scope :top_pilot, -> { order(flight_count: :desc).limit(1)}
+   
 end
 

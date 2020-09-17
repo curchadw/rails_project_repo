@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2020_08_28_043700) do
     t.integer "flight_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "flight_count", default: 0
   end
 
   create_table "users", force: :cascade do |t|

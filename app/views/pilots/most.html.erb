@@ -1,0 +1,10 @@
+<h2>Pilot with the most flights</h2>
+<div class= 'container top_pilot'>
+<ul>
+<% @pilots.each do |pilot|%>
+    <h3><li><%= pilot.name %> | <%= pilot.flight_count %></li></h3>
+<% end %>
+</ul>
+</div>
+
+<%= link_to 'Back', user_path(current_user) %>

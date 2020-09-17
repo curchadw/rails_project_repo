@@ -29,9 +29,13 @@ class FlightsController < ApplicationController
         end
     end
 
+    
+
     def show
         @flight = Flight.find(params[:id])
     end
+
+    
 
 
     def edit

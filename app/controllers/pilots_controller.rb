@@ -13,6 +13,10 @@ class PilotsController < ApplicationController
         
         
     end
+
+    def most
+        @pilots = Pilot.top_pilot
+    end
     
     
 
@@ -46,6 +50,8 @@ class PilotsController < ApplicationController
             @results = Pilot.all.where("lower(name) LIKE :search ", search: @parameter )
         end
     end
+
+   
 
     
 
