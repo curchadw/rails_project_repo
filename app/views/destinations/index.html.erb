@@ -8,17 +8,18 @@
     
     
 
-    <div class='destinations'>
+     <div class='destinations'>
     <ul>
     <% @destinations.each do |destination|%>
         <% if current_user.admin %>
-            <h3><li><%= link_to destination.name, user_destination_path(current_user, destination) %>(<%= destination.flights.count %>) | <%= link_to 'Edit', edit_user_destination_path(current_user, destination) %> | <%= link_to 'Delete',user_destination_path(current_user, destination), method: :delete %></li></h3>
+            <h3><li><%= link_to destination.name, user_destination_path(current_user, destination) %> (<%= destination.flights.count%>) | <%= link_to 'Edit', edit_user_destination_path(current_user, destination) %> | <%= link_to 'Delete',user_destination_path(current_user, destination), method: :delete %></li></h3> 
         <% else %>
-            <h3><li><%= link_to destination.name, user_destination_path(current_user, destination) %>(<%= destination.flights.count %>)</li></h3>
+            <h3><li><%= link_to destination.name, user_destination_path(current_user, destination) %> (<%= destination.flights.count %>) </li></h3>
         <% end %>
     <% end %>
     </ul>
     </div>
+    
     
     </div>
     <div class='options'>

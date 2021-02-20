@@ -17,7 +17,7 @@ class FlightsController < ApplicationController
 
     def create
         @flight = Flight.new(flight_params)
-        
+        # byebug
         if @flight.save!
   
             redirect_to flight_path(current_user,@flight)
@@ -64,7 +64,7 @@ class FlightsController < ApplicationController
     private
 
     def flight_params
-        params.require(:flight).permit(:flight_number,:date_of_flight, :flight_time, :flight_id, :destination_id, :pilot_id, :pilot_id =>[], :destination_id =>[], passengers_attributes:[:id, :name])
+        params.require(:flight).permit(:flight_number,:date_of_flight, :flight_time, :flight_id, :destination_id, :pilot_id, :pilot_id =>[], :destination_id =>[], pilot_attributes: [:id, :name, :rank, :flight_count] ,passengers_attributes:[:id, :name])
     end
     
     
