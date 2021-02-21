@@ -31,7 +31,7 @@ gem 'omniauth-github'
 gem 'omniauth'
 gem 'jquery-ui-rails', '5.0.5'
 
-
+gem "google-cloud-storage", "~> 1.11", require: false
 
 gem 'figaro'
 
